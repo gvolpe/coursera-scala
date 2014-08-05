@@ -12,6 +12,9 @@ object RationalNumbers {
     val z = new Rational(3, 2)
 
     println(x.sub(y).sub(z))
+    println(y.add(y))
+    println(x.less(y))
+    println(x.max(y))
   }
 
   def addRational(r: Rational, s: Rational): Rational = {
@@ -24,8 +27,22 @@ object RationalNumbers {
 
 class Rational(x: Int, y: Int) {
 
-  def numer = x
-  def denom = y
+  require(y != 0, "Denominator must be nonzero.")
+
+  // Another constructor
+  def this(x: Int) = this(x, 1)
+
+  // Great Common Divisor
+  private def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+
+  //  val numer = x / gcd(x, y)
+  //  val denom = y / gcd(x, y)
+  val numer = x
+  val denom = y
+
+  def less(that: Rational) = numer * that.denom < that.numer * denom
+
+  def max(that: Rational) = if (this.less(that)) that else this
 
   def add(that: Rational): Rational = {
     new Rational(numer * that.denom + that.numer * denom, denom * that.denom)
@@ -35,6 +52,9 @@ class Rational(x: Int, y: Int) {
 
   def sub(that: Rational): Rational = add(that.neg)
 
-  override def toString = numer + "/" + denom
+  override def toString = {
+    def g = gcd(numer, denom)
+    numer / g + "/" + denom / g
+  }
 
 }
