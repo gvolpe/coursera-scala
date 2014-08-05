@@ -1,4 +1,4 @@
-package com.gvolpe
+package com.gvolpe.week2
 
 object Examples {
 

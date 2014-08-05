@@ -1,4 +1,4 @@
-package com.gvolpe
+package com.gvolpe.week1
 
 import scala.annotation.tailrec
 

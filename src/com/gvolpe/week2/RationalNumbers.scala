@@ -1,20 +1,22 @@
-package com.gvolpe
+package com.gvolpe.week2
 
 object RationalNumbers {
 
   def main(args: Array[String]) {
     println(toString(addRational(new Rational(1, 2), new Rational(2, 3))))
 
-    println(new Rational(1, 2).add(new Rational(2, 3)))
+    println(new Rational(1, 2).+(new Rational(2, 3)))
 
     val x = new Rational(1, 3)
     val y = new Rational(5, 7)
     val z = new Rational(3, 2)
 
-    println(x.sub(y).sub(z))
-    println(y.add(y))
-    println(x.less(y))
+    println(x - y - z)
+    println(y + y)
+    println(x < y)
     println(x.max(y))
+    
+    println(y + y)
   }
 
   def addRational(r: Rational, s: Rational): Rational = {
@@ -40,17 +42,19 @@ class Rational(x: Int, y: Int) {
   val numer = x
   val denom = y
 
-  def less(that: Rational) = numer * that.denom < that.numer * denom
+  //def less(that: Rational) = numer * that.denom < that.numer * denom
+  def < (that: Rational) = numer * that.denom < that.numer * denom
 
-  def max(that: Rational) = if (this.less(that)) that else this
+  def max(that: Rational) = if (this < that) that else this
 
-  def add(that: Rational): Rational = {
+//  def add(that: Rational): Rational = {
+  def + (that: Rational): Rational = {
     new Rational(numer * that.denom + that.numer * denom, denom * that.denom)
   }
 
-  def neg: Rational = new Rational(-numer, denom)
+  def unary_- : Rational = new Rational(-numer, denom)
 
-  def sub(that: Rational): Rational = add(that.neg)
+  def -(that: Rational): Rational = this + -that
 
   override def toString = {
     def g = gcd(numer, denom)
