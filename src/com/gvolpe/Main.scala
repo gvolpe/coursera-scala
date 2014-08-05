@@ -1,4 +1,4 @@
-package com.etermax
+package com.gvolpe
 
 import scala.annotation.tailrec
 

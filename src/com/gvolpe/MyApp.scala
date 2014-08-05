@@ -1,4 +1,4 @@
-package com.etermax
+package com.gvolpe
 
 object MyApp extends App {
 
