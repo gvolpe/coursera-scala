@@ -6,4 +6,6 @@ class Nil[T] extends GenericList[T] {
   def head: Nothing = throw new NoSuchElementException("Nil.head")
   def tail: Nothing = throw new NoSuchElementException("Nil.tail")
 
+  override def toString = "{Nil}"
+
 }
