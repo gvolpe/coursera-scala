@@ -11,8 +11,7 @@ object listsExercise {
   }                                               //> nth: [T](n: Int, xs: com.gvolpe.week3.lists.GenericList[T])T
   
   val list = new Cons(1, new Cons(2, new Cons(3, new Nil)))
-                                                  //> list  : com.gvolpe.week3.lists.Cons[Int] = com.gvolpe.week3.lists.Cons@4b7bd
-                                                  //| 154
+                                                  //> list  : com.gvolpe.week3.lists.Cons[Int] = {1}{2}{3}{Nil}
   nth(2, list)                                    //> res0: Int = 3
  
   //nth(4, list) IndexOutOfBounds
