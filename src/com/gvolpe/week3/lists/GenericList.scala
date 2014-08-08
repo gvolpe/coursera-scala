@@ -6,7 +6,8 @@ trait GenericList[+T] {
   def head: T
   def tail: GenericList[T]
 
-  def prepend[U >: T](elem: U): List[U] = new Cons(elem, this)
+  // No se porque no anda esto pero en el curso compila
+  //def prepend[U >: T](elem: U): List[U] = new Cons(elem, this)
 
 }
 
