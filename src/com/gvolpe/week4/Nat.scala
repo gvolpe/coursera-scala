@@ -9,7 +9,7 @@ abstract class Nat {
   def -(that: Nat): Nat
 
   def getNameIndex: Int
-  
+
 }
 
 object Zero extends Nat {
@@ -23,7 +23,7 @@ object Zero extends Nat {
   }
 
   override def toString = "Zero"
-    
+
   def getNameIndex: Int = throw new Error("Zero has no index name")
 
 }
@@ -41,13 +41,13 @@ class Succ(value: Nat) extends Nat {
   }
 
   def getNameIndex: Int = {
-    if(value.isZero) 1 
+    if (value.isZero) 1
     else 1 + value.getNameIndex
   }
-  
+
   override def toString = {
     if (value.isZero) numbers(0)
-    else if(value.getNameIndex < numbers.size) numbers(value.getNameIndex) 
+    else if (value.getNameIndex < numbers.size) numbers(value.getNameIndex)
     else "Natural number not found"
   }
 
