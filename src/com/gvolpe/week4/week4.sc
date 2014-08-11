@@ -22,9 +22,9 @@ object week4 {
   var doce = seis + seis                          //> doce  : com.gvolpe.week4.Nat = Natural number not found
   
   // Decomposition
-  var num1 = new Number2(4)                       //> num1  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@61d22f35
-  var num2 = new Number2(3)                       //> num2  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@2e1972bf
-  var sum = new Sum2(num1, num2)                  //> sum  : com.gvolpe.week4.Sum2 = com.gvolpe.week4.Sum2@7608d498
+  var num1 = new Number2(4)                       //> num1  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@4e2a544e
+  var num2 = new Number2(3)                       //> num2  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@3d04f4f9
+  var sum = new Sum2(num1, num2)                  //> sum  : com.gvolpe.week4.Sum2 = com.gvolpe.week4.Sum2@39e53a48
   
   num1.eval                                       //> res5: Int = 4
   sum.eval                                        //> res6: Int = 7
@@ -51,4 +51,8 @@ object week4 {
                                                   //| Number(3))
   prod2.eval                                      //> res12: Int = 15
   prod2.show                                      //> res13: String = 2 + 3 * 3
+
+  // Sorting Lists
+  var nums = List(2, 6, 3, 9, 7)                  //> nums  : List[Int] = List(2, 6, 3, 9, 7)
+  SortingLists.isort(nums)                        //> res14: List[Int] = List(2, 3, 6, 7, 9)
 }
