@@ -6,6 +6,31 @@ package com.gvolpe.week4
  */
 object Huffman {
 
+  def main(args: Array[String]) {
+    /* EJEMPLO DEL CURSO */
+    courseExample
+  }
+
+  def courseExample() = {
+    // Fila 3
+    var fork1 = makeCodeTree(Leaf('G', 1), Leaf('H', 1))
+    var fork2 = makeCodeTree(Leaf('E', 1), Leaf('F', 1))
+    var fork3 = makeCodeTree(Leaf('C', 1), Leaf('D', 1))
+
+    // Fila 2
+    var fork4 = makeCodeTree(Leaf('B', 3), fork3)
+    var fork5 = makeCodeTree(fork2, fork1)
+
+    // Fila 1
+    var fork6 = makeCodeTree(fork4, fork5)
+
+    // Root
+    var tree = makeCodeTree(Leaf('A', 8), fork6)
+    println("Tree   >> " + tree)
+    println("Weight >> " + tree.weight)
+    println("Chars  >> " + tree.chars)
+  }
+
   type ??? = Nothing
 
   /**
