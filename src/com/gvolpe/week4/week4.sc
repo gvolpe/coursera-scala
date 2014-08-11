@@ -1,6 +1,7 @@
 package com.gvolpe.week4
 
 import com.gvolpe.week3._
+import com.gvolpe.week4._
 
 object week4 {
   MyList()                                        //> res0: com.gvolpe.week3.lists.GenericList[Unit] = {()}{Nil}
@@ -19,4 +20,12 @@ object week4 {
   var seis = tres + tres                          //> seis  : com.gvolpe.week4.Nat = Six
   var nueve = seis + tres                         //> nueve  : com.gvolpe.week4.Nat = Nine
   var doce = seis + seis                          //> doce  : com.gvolpe.week4.Nat = Natural number not found
+  
+  // Decomposition
+  var num1 = new Number2(4)                       //> num1  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@68d5c08f
+  var num2 = new Number2(3)                       //> num2  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@2955220e
+  var sum = new Sum2(num1, num2)                  //> sum  : com.gvolpe.week4.Sum2 = com.gvolpe.week4.Sum2@73486eef
+  
+  num1.eval                                       //> res5: Int = 4
+  sum.eval                                        //> res6: Int = 7
 }
