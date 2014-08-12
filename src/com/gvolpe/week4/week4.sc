@@ -22,9 +22,9 @@ object week4 {
   var doce = seis + seis                          //> doce  : com.gvolpe.week4.Nat = Natural number not found
   
   // Decomposition
-  var num1 = new Number2(4)                       //> num1  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@4e2a544e
-  var num2 = new Number2(3)                       //> num2  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@3d04f4f9
-  var sum = new Sum2(num1, num2)                  //> sum  : com.gvolpe.week4.Sum2 = com.gvolpe.week4.Sum2@39e53a48
+  var num1 = new Number2(4)                       //> num1  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@391416b3
+  var num2 = new Number2(3)                       //> num2  : com.gvolpe.week4.Number2 = com.gvolpe.week4.Number2@55de5f0b
+  var sum = new Sum2(num1, num2)                  //> sum  : com.gvolpe.week4.Sum2 = com.gvolpe.week4.Sum2@318f37c
   
   num1.eval                                       //> res5: Int = 4
   sum.eval                                        //> res6: Int = 7
@@ -55,4 +55,12 @@ object week4 {
   // Sorting Lists
   var nums = List(2, 6, 3, 9, 7)                  //> nums  : List[Int] = List(2, 6, 3, 9, 7)
   SortingLists.isort(nums)                        //> res14: List[Int] = List(2, 3, 6, 7, 9)
+  
+  // Maps
+  var acc = Map[Char, Int]()                      //> acc  : scala.collection.immutable.Map[Char,Int] = Map()
+  var char = 'a'                                  //> char  : Char = a
+  var mapa = acc.updated(char, acc.withDefault(key => 0)(char) + 1)
+                                                  //> mapa  : scala.collection.immutable.Map[Char,Int] = Map(a -> 1)
+  mapa.updated(char, mapa.withDefault(key => 0)(char) + 1)
+                                                  //> res15: scala.collection.immutable.Map[Char,Int] = Map(a -> 2)
 }

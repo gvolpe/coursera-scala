@@ -1,5 +1,7 @@
 package com.gvolpe.week4
 
+import scala.annotation.tailrec
+
 /**
  * Assignment 4: Huffman coding
  *
@@ -9,9 +11,12 @@ object Huffman {
   def main(args: Array[String]) {
     /* EJEMPLO DEL CURSO */
     courseExample
+
+    var chars = string2Chars("gabrielmarcelovolpe")
+    println(times(chars))
   }
 
-  def courseExample() = {
+  def courseExample = {
     // Fila 3
     var fork1 = makeCodeTree(Leaf('G', 1), Leaf('H', 1))
     var fork2 = makeCodeTree(Leaf('E', 1), Leaf('F', 1))
@@ -50,13 +55,13 @@ object Huffman {
   // Part 1: Basics
 
   def weight(tree: CodeTree): Int = tree match {
-    case Leaf(c, w) => w
-    case Fork(l, r, c, w) => weight(l) + weight(r)
+    case Leaf(_, weight) => weight
+    case Fork(_, _, _, weight) => weight
   }
 
   def chars(tree: CodeTree): List[Char] = tree match {
-    case Leaf(c, w) => List(c)
-    case Fork(l, r, c, w) => chars(l) ::: chars(r)
+    case Leaf(char, _) => List(char)
+    case Fork(_, _, chars, _) => chars
   }
 
   def makeCodeTree(left: CodeTree, right: CodeTree) =
@@ -98,7 +103,14 @@ object Huffman {
    *       println("integer is  : "+ theInt)
    *   }
    */
-  def times(chars: List[Char]): List[(Char, Int)] = ???
+  def times(chars: List[Char]): List[(Char, Int)] = {
+    @tailrec
+    def occurences(chars: List[Char], acc: Map[Char, Int]): Map[Char, Int] = chars match {
+      case List() => acc
+      case char :: tail => occurences(tail, acc.updated(char, acc.withDefault(key => 0)(char) + 1))
+    }
+    occurences(chars, Map[Char, Int]()).toList
+  }
 
   /**
    * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
