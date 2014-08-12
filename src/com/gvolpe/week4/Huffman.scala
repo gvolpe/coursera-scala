@@ -124,7 +124,6 @@ object Huffman {
    *   }
    */
   def times(chars: List[Char]): List[(Char, Int)] = {
-    @tailrec
     def occurences(chars: List[Char], acc: Map[Char, Int]): Map[Char, Int] = chars match {
       case List() => acc
       case char :: tail => occurences(tail, acc.updated(char, acc.withDefault(key => 0)(char) + 1))
@@ -212,7 +211,6 @@ object Huffman {
    * the resulting list of characters.
    */
   def decode(tree: CodeTree, bits: List[Bit]): List[Char] = {
-    @tailrec
     def innerDecode(innerTree: CodeTree, bits: List[Bit], acc: List[Char]): List[Char] = innerTree match {
       case Leaf(char, _) => innerDecode(tree, bits, char :: acc)
       case Fork(left, right, _, _) => bits match {
@@ -251,7 +249,6 @@ object Huffman {
    * into a sequence of bits.
    */
   def encode(tree: CodeTree)(text: List[Char]): List[Bit] = {
-    @tailrec
     def innerEncode(innerTree: CodeTree, char: Char, acc: List[Bit]): List[Bit] = innerTree match {
       case Leaf(_, _) => acc
       case Fork(left, right, _, _) =>
