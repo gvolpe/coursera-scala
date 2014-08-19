@@ -43,15 +43,4 @@ object collections {
   scalaProduct(nums1, nums2)                      //> res9: Int = 100
   scalaProductPM(nums1, nums2)                    //> res10: Int = 100
   
-  /* --------------------- PRIME NUMBER --------------------------- */
-  def isPrime(n: Int): Boolean = {
-  	if (n < 1) false
-  	else if (n == 1) true
-  	else (2 until n) forall (d => n % d != 0)
-  }                                               //> isPrime: (n: Int)Boolean
-  
-  isPrime(2)                                      //> res11: Boolean = true
-  isPrime(-2)                                     //> res12: Boolean = false
-  isPrime(14)                                     //> res13: Boolean = false
-  isPrime(59)                                     //> res14: Boolean = true
 }
