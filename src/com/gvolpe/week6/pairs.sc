@@ -49,6 +49,12 @@ object pairs {
   } yield (i ,j)                                  //> res7: scala.collection.immutable.IndexedSeq[(Int, Int)] = Vector((2,1), (3,
                                                   //| 2), (4,1), (4,3), (5,2), (6,1), (6,5))
  
+  // Translation del for de arriba (lo que hace el compilador)
+  (1 until n).flatMap(i =>
+  	(1 until i).withFilter(j =>
+  		isPrime(i+j)).map(j => (i,j)))    //> res8: scala.collection.immutable.IndexedSeq[(Int, Int)] = Vector((2,1), (3,
+                                                  //| 2), (4,1), (4,3), (5,2), (6,1), (6,5))
+  
   def scalaProductFor(xs: Vector[Int], ys: Vector[Int]): Int = {
     (for ((x, y) <- xs zip ys) yield (x * y)).sum
   }                                               //> scalaProductFor: (xs: Vector[Int], ys: Vector[Int])Int
@@ -56,6 +62,6 @@ object pairs {
   val nums1 = Vector(1,3,5,7)                     //> nums1  : scala.collection.immutable.Vector[Int] = Vector(1, 3, 5, 7)
   val nums2 = Vector(2,4,6,8)                     //> nums2  : scala.collection.immutable.Vector[Int] = Vector(2, 4, 6, 8)
   
-  scalaProductFor(nums1, nums2)                   //> res8: Int = 100
+  scalaProductFor(nums1, nums2)                   //> res9: Int = 100
  
 }

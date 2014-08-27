@@ -24,6 +24,11 @@ object queriesFor {
   yield b.title                                   //> res0: scala.collection.immutable.Set[String] = Set(asfjg, La odisea, La ilia
                                                   //| da)
   
+  // Translation del for de arriba (lo que hace el compilador)
+  books.flatMap(b => b.authors.withFilter(a => a startsWith "Homero").map(t => b.title))
+                                                  //> res1: scala.collection.immutable.Set[String] = Set(asfjg, La odisea, La ilia
+                                                  //| da)
+  
   //for (b <- books if b.title indexOf "Homero" >= 0)
   //yield b.title
   
