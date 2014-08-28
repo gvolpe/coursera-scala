@@ -4,7 +4,7 @@ import java.io.File
 
 package object week6 {
 
-  val dictionaryPath = List("forcomp", "linuxwords.txt")
+  val dictionaryPath = List("resources", "linuxwords.txt")
 
   def loadDictionary = {
     val wordstream = Option {
@@ -25,12 +25,12 @@ package object week6 {
       wordstream.close()
     }
   }
-  
+
   /**
    * Get a child of a file. For example,
-   * 
+   *
    *   subFile(homeDir, "b", "c")
-   * 
+   *
    * corresponds to ~/b/c
    */
   def subFile(file: File, children: String*) = {
@@ -50,5 +50,5 @@ package object week6 {
     else
       None
   }
-  
+
 }
