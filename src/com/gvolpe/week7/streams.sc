@@ -17,5 +17,5 @@ object streams {
 	}                                         //> listRange: (lo: Int, hi: Int)List[Int]
 	
 	streamRange(1, 10).take(3).toList         //> res1: List[Int] = List(1, 2, 3)
-
+  
 }
